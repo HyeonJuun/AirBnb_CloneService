@@ -15,13 +15,13 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <Header />
       <body>
+        <Header></Header>
+
         <Logo />
-        {/* <Lodging /> */}
         {props.children}
+        <Footer></Footer>
       </body>
-      <Footer />
     </html>
   );
 }
