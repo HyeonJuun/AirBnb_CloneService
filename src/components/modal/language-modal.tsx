@@ -6,8 +6,10 @@ import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 import { Divider, IconButton, Tab, Tabs } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import HomeIcon from '@mui/icons-material/Home';
+import LanguageIcon from '@mui/icons-material/Language';
 import { TabPanel, TabContext } from '@mui/lab';
+import LanguagePanel from '@/components/Panel/languagePanel';
+import CurrencyPanel from '@/components/Panel/currencyPanel';
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement<any, any>;
@@ -17,7 +19,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction='up' ref={ref} {...props} />;
 });
 
-export default function AlertDialogSlide() {
+export default function LanguageModal() {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState('language');
 
@@ -36,10 +38,11 @@ export default function AlertDialogSlide() {
   return (
     <React.Fragment>
       <IconButton onClick={handleClickOpen}>
-        <HomeIcon />
+        <LanguageIcon />
       </IconButton>
       <Dialog
         open={open}
+        fullWidth
         TransitionComponent={Transition}
         keepMounted
         onClose={handleClose}
@@ -62,8 +65,12 @@ export default function AlertDialogSlide() {
             <Tab label='통화' value='currency' />
           </Tabs>
           <Divider />
-          <TabPanel value='language'>언어와 지역을 선택하세요</TabPanel>
-          <TabPanel value='currency'>통화를 선택하세요</TabPanel>
+          <TabPanel value='language'>
+            <LanguagePanel selectedLanguage='KOR' />
+          </TabPanel>
+          <TabPanel value='currency'>
+            <CurrencyPanel selectedCurrency='KRW' />
+          </TabPanel>
         </TabContext>
       </Dialog>
     </React.Fragment>
