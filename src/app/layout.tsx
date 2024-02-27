@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from './area/header';
 import Footer from './area/footer';
+import { Providers } from '@/app/providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,9 +18,8 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html lang='en'>
       <body>
         <Header></Header>
-
         <Logo />
-        {props.children}
+        <Providers>{props.children}</Providers>
         <Footer></Footer>
       </body>
     </html>

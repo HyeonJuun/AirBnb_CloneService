@@ -44,7 +44,6 @@ export default function LanguageModal() {
         open={open}
         fullWidth
         TransitionComponent={Transition}
-        keepMounted
         onClose={handleClose}
         aria-describedby='alert-dialog-slide-description'
         scroll='paper'
@@ -66,10 +65,10 @@ export default function LanguageModal() {
           </Tabs>
           <Divider />
           <TabPanel value='language'>
-            <LanguagePanel selectedLanguage='KOR' />
+            <LanguagePanel onClosed={handleClose} />
           </TabPanel>
           <TabPanel value='currency'>
-            <CurrencyPanel selectedCurrency='KRW' />
+            <CurrencyPanel onClosed={handleClose} />
           </TabPanel>
         </TabContext>
       </Dialog>

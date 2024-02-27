@@ -1,10 +1,12 @@
+import ChangeCurrencyButton from '@/components/changeCurrencyButton';
+import {
+  CURRENCIES,
+  CurrencyContext,
+} from '@/contexts/currencyContextProvider';
 import { Button, Grid, Typography } from '@mui/material';
+import { useContext } from 'react';
 
-export default function currencyPanel({
-  selectedCurrency,
-}: {
-  selectedCurrency: string;
-}) {
+export default function currencyPanel({ onClosed }) {
   return (
     <>
       <Typography
@@ -16,19 +18,16 @@ export default function currencyPanel({
       >
         통화를 선택하세요.
       </Typography>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid>
-          <Button>aa</Button>
-        </Grid>
-        <Grid>
-          <Button>bb</Button>
-        </Grid>
-        <Grid>
-          <Button>cc</Button>
-        </Grid>
-        <Grid>
-          <Button>dd</Button>
-        </Grid>
+      <Grid className='h-56 grid grid-cols-5 gap-1 hover:contrast-more'>
+        {Object.values(CURRENCIES).map((eachcurrency, index) => {
+          return (
+            <ChangeCurrencyButton
+              key={index}
+              eachcurrency={eachcurrency}
+              onClosed={onClosed}
+            />
+          );
+        })}
       </Grid>
     </>
   );

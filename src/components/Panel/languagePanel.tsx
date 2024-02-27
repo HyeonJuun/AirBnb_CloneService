@@ -1,10 +1,6 @@
 import { Button, Grid, Typography } from '@mui/material';
 
-export default function languagePanel({
-  selectedLanguage,
-}: {
-  selectedLanguage: string;
-}) {
+export default function languagePanel({ onClosed }) {
   return (
     <>
       <Typography
@@ -18,7 +14,13 @@ export default function languagePanel({
       </Typography>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid>
-          <Button>aa</Button>
+          <Button
+            onClick={() => {
+              onClosed();
+            }}
+          >
+            aa
+          </Button>
         </Grid>
         <Grid>
           <Button>bb</Button>
