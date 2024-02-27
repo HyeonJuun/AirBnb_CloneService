@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 
-export default function Children({ handleClose }: { handleClose: () => void }) {
+export default function Children({
+  handleClose,
+  addAdult,
+}: {
+  handleClose: () => void;
+  addAdult: () => void;
+}) {
   const [children, setChildren] = useState(0);
 
   const handleIncrement = () => {

@@ -11,6 +11,11 @@ import Seoul from '@/topNavigations/lodging/property/citys/seoul';
 import Busan from '@/topNavigations/lodging/property/citys/busan';
 import Sokcho from '@/topNavigations/lodging/property/citys/sokcho';
 import Gangneung from '@/topNavigations/lodging/property/citys/gangneung';
+import { MenuList } from '@mui/material';
+import eu from '@public/eu.png';
+import jap from '@public/jap.png';
+import south from '@public/south.png';
+import Image from 'next/image';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -24,76 +29,41 @@ export default function BasicMenu() {
 
   return (
     <div>
-      <Button
-        id='basic-button'
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup='true'
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-      >
+      <Button id='basic-button' onClick={handleClick}>
         여행지
       </Button>
       <Menu
         id='basic-menu'
+        className=''
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
       >
         <div>지역으로 검색하기</div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', width: '400px' }}>
-          <MenuItem
-            style={{ flex: '1 0 25%', fontSize: '12px' }}
-            onClick={handleClose}
-          >
-            <FlexibleSearch />
-          </MenuItem>
-          <MenuItem
-            style={{ flex: '1 0 25%', fontSize: '12px' }}
-            onClick={handleClose}
-          >
-            <Europe />
-          </MenuItem>
-          <MenuItem
-            style={{ flex: '1 0 25%', fontSize: '12px' }}
-            onClick={handleClose}
-          >
-            <Japan />
-          </MenuItem>
-          <MenuItem
-            style={{ flex: '1 0 25%', fontSize: '12px' }}
-            onClick={handleClose}
-          >
-            <SoutheastAsia />
-          </MenuItem>
-          <div>한국</div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', width: '400px' }}>
-            <MenuItem
-              style={{ flex: '1 0 25%', fontSize: '12px' }}
-              onClick={handleClose}
-            >
-              <Seoul />
-            </MenuItem>
-            <MenuItem
-              style={{ flex: '1 0 25%', fontSize: '12px' }}
-              onClick={handleClose}
-            >
-              <Busan />
-            </MenuItem>
-            <MenuItem
-              style={{ flex: '1 0 25%', fontSize: '12px' }}
-              onClick={handleClose}
-            >
-              <Sokcho />
-            </MenuItem>
-            <MenuItem
-              style={{ flex: '1 0 25%', fontSize: '12px' }}
-              onClick={handleClose}
-            >
-              <Gangneung />
-            </MenuItem>
+        <div className='flex flex-col'>
+          <div className=''>
+            <div>일본</div>
+            <div>
+              <Image src={jap} alt='jap image' width={100} height={100} />
+            </div>
+          </div>
+          <div className=''>
+            <div>일본</div>
+            <div>
+              <Image src={jap} alt='jap image' width={100} height={100} />
+            </div>
+          </div>
+          <div className=''>
+            <div>일본</div>
+            <div>
+              <Image src={jap} alt='jap image' width={100} height={100} />
+            </div>
+          </div>
+          <div className=''>
+            <div>일본</div>
+            <div>
+              <Image src={jap} alt='jap image' width={100} height={100} />
+            </div>
           </div>
         </div>
       </Menu>

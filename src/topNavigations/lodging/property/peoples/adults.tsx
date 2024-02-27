@@ -4,9 +4,7 @@ export default function Adults({ handleClose }: { handleClose: () => void }) {
   const [adults, setAdults] = useState(0);
 
   const handleIncrement = () => {
-    if (adults < 16) {
-      setAdults(adults + 1);
-    }
+    setAdults(adults + 1);
   };
 
   const handleDecrement = () => {
@@ -28,6 +26,7 @@ export default function Adults({ handleClose }: { handleClose: () => void }) {
       </button>
       <span>{adults}</span>
       <button
+        disabled={adults >= 16}
         onClick={(e) => {
           handleIncrement();
           e.stopPropagation();

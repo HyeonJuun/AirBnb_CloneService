@@ -18,6 +18,8 @@ export default function BasicMenu() {
     setAnchorEl(null);
   };
 
+  const [adulttest, setAdulttest] = React.useState(0);
+
   return (
     <div>
       <Button
@@ -42,7 +44,14 @@ export default function BasicMenu() {
           <Adults handleClose={handleClose} />
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Children handleClose={handleClose} />
+          <Children
+            handleClose={handleClose}
+            addAdult={() => {
+              if (adulttest < 15) {
+                setAdulttest(adulttest + 1);
+              }
+            }}
+          />
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Babies handleClose={handleClose} />
